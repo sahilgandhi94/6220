@@ -5,7 +5,7 @@ import time
 from copy import deepcopy
 
 # constants
-DATA_LOC = "/home/ubuntu/projects/datasets/AP_test.txt"
+DATA_LOC = "/home/ubuntu/projects/datasets/AP_train.txt"
 
 # data formats
 FORMAT_ID = "#index"
