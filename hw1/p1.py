@@ -5,7 +5,7 @@ import time
 from copy import deepcopy
 
 # constants
-DATA_LOC = "/home/ubuntu/projects/datasets/AP_train.txt"
+DATA_LOC = "/home/ubuntu/projects/datasets/AP_test.txt"
 
 # data formats
 FORMAT_ID = "#index"
@@ -34,13 +34,20 @@ def generatetuples():
             if FORMAT_ID in line:
                 # yield already existing datum and continue
                 if len(datum.keys()) > 0:
-                    yield datum
-#                     for author in datum.get(AUTHOR, []):
-#                         for citation in datum.get(CITATION, []):
-#                             tmp_datum = deepcopy(datum)
-#                             tmp_datum[AUTHOR] = author
-#                             tmp_datum[CITATION] = citation
-#                             yield tmp_datum
+                    # yield datum
+                    if len(datum.get(AUTHOR, [])) > 0:
+                        for author in datum.get(AUTHOR, []):
+                            for citation in datum.get(CITATION, []):
+                                tmp_datum = deepcopy(datum)
+                                tmp_datum[AUTHOR] = author
+                                tmp_datum[CITATION] = citation
+                                yield tmp_datum
+                    else:
+                       for citation in datum.get(CITATION, []):
+                            tmp_datum = deepcopy(datum)
+                            tmp_datum[AUTHOR] = author
+                            tmp_datum[CITATION] = citation
+                            yield tmp_datum 
                 datum = dict() # re-initialize local datum
                 datum[ID] = line.strip(FORMAT_ID).strip()
             elif FORMAT_PAPER_TITLE in line:
