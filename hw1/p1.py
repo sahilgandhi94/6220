@@ -59,5 +59,5 @@ def generatetuples():
                 datum[ABSTRACT] = line.strip(FORMAT_ABSTRACT).strip()
 
 start = time.time()
-len([data for data in generatetuples()])
-time.time()-start
+print(len([data for data in generatetuples()]))
+print(time.time()-start)
