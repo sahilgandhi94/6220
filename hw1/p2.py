@@ -30,7 +30,6 @@ for line in datfile.readlines():
     s = s[:-1]
     print(dataline(s))
     arfffile.write(dataline(s))
-    break
 
 datfile.close()
 print('Total time to parse: {}'.format(time.time()-start))
