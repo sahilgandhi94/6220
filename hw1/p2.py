@@ -28,7 +28,6 @@ for line in datfile.readlines():
     for x in sorted(attributes):
         s += '{} 1,'.format(x)
     s = s[:-1]
-    print(dataline(s))
     arfffile.write(dataline(s))
 
 datfile.close()
