@@ -18,7 +18,7 @@ print(csfile)
 
 if os.path.isfile(csfile):
     print('Found existing database, renaming it..')
-    os.rename(csfile, '20ng-cs'+str(int(time.time()))+'dat')
+    os.rename(csfile, '20ng-cs'+str(int(time.time()))+'.dat')
 
 fp = np.memmap(csfile, dtype='float32', mode='w+', shape=(vectors.shape[0], vectors.shape[0]))
 
