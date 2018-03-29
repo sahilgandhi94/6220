@@ -1,3 +1,7 @@
+# manual entries
+Data/
+
+
 .vscode/*
 
 # Created by https://www.gitignore.io/api/linux,macos,python
